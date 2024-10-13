@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Attack Awareness</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #005bb5;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        /* Flexbox layout for video and content */
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .video,
+        .text-info {
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+
+        .game-container {
+            text-align: center;
+            padding: 40px;
+            background-color: #eee;
+        }
+
+        /* Tabs styling */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+        }
+
+        /* For correct footer placement when the content is short */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Wi-Fi Attack Awareness</h1>
+        <p>Understand the dangers of connecting to open Wi-Fi and how to protect yourself</p>
+    </header>
+
+    <nav>
+        <a onclick="showTab('videos')">Videos</a>
+        <a onclick="showTab('info')">Information</a>
+        <a onclick="showTab('games')">Games</a>
+        <a onclick="showTab('about')">About</a>
+    </nav>
+
+    <main>
+        <!-- Videos Section -->
+        <section id="videos" class="tab-content active">
+            <h2>Educational Videos</h2>
+            <div class="content">
+                <div class="video">
+                    <h3>What are Wi-Fi Attacks?</h3>
+                    <iframe src="https://www.youtube.com/embed/QLeM0f6JIz8" title="What are Wi-Fi Attacks?" allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                    <h3>How to Stay Safe</h3>
+                    <iframe src="https://www.youtube.com/embed/QLeM0f6JIz8" title="How to Stay Safe" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section id="info" class="tab-content">
+            <h2>What You Should Know</h2>
+            <div class="content">
+                <div class="text-info">
+                    <h3>Understanding Wi-Fi Threats</h3>
+                    <p>
+                        Wi-Fi attacks happen when hackers exploit weaknesses in wireless networks, often in public places. 
+                        This section will explain the most common types of attacks, including Man-in-the-Middle, Evil Twin, and more.
+                    </p>
+                </div>
+                <div class="text-info">
+                    <h3>Tips to Protect Yourself</h3>
+                    <p>
+                        Connecting to open Wi-Fi networks can expose your sensitive data to attackers. Learn about the risks 
+                        and how to stay safe by using VPNs, turning off automatic Wi-Fi connections, and checking for secure sites.
+                    </p>
+                </div>
+                <!-- New Section: What is Wi-Fi? -->
+                <div class="text-info">
+                    <h3>What is Wi-Fi?</h3>
+                    <p>
+                        Wi-Fi stands for "Wireless Fidelity" and allows devices like smartphones, laptops, and tablets to connect to the internet without using cables. 
+                        It works by sending data over radio waves between your device and a router, which connects to the internet. 
+                        While it's very convenient, using public or unprotected Wi-Fi can expose your personal information to hackers.
+                    </p>
+                </div>
+                <!-- New Section: What is an IP Address? -->
+                <div class="text-info">
+                    <h3>What is an IP Address?</h3>
+                    <p>
+                        An IP address (Internet Protocol address) is a unique number assigned to every device that connects to the internet. 
+                        Think of it like a home address, but for your devices online. Just as the post office uses your home address to deliver mail, 
+                        the internet uses your IP address to send information to your device. It's important to keep your IP address private 
+                        because hackers can use it to track your online activities or even launch attacks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="tab-content">
+            <h2>Interactive Learning</h2>
+            <div class="game-container">
+                <h3>Test Your Knowledge: Wi-Fi Safety Quiz</h3>
+                <p>Answer the following questions to test your understanding of Wi-Fi security threats!</p>
+                <button onclick="startQuiz()">Start Quiz</button>
+                <div id="quiz"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="tab-content">
+            <h2>About</h2>
+            <p>
+                This website is part of a senior design project at Michigan Tech. The purpose of this project is to spread awareness about the vulnerabilities 
+                associated with using open Wi-Fi networks. Through educational videos, detailed information, and interactive games, this site aims to inform 
+                users about the dangers of connecting to public networks and how they can protect their data. 
+            </p>
+            <p>
+                Open Wi-Fi networks, such as those in coffee shops, airports, or libraries, are often unsecured, making them prime targets for hackers. 
+                Our goal is to educate the public on these risks and provide actionable tips to enhance their security. This project reflects Michigan Tech's 
+                commitment to cybersecurity education and real-world solutions.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Wi-Fi Attack Awareness | &copy; 2024 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show the selected tab
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Quiz logic
+        function startQuiz() {
+            const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = '';
+
+            const questions = [
+                {
+                    question: '1. What is the most common type of Wi-Fi attack?',
+                    options: ['1. Man-in-the-Middle', '2. Phishing', '3. Malware'],
+                    correct: 1
+                },
+                {
+                    question: '2. How can you protect your data on public Wi-Fi?',
+                    options: ['1. Use a VPN', '2. Open any website without worry', '3. Share files openly'],
+                    correct: 1
+                },
+                {
+                    question: '3. What is an "Evil Twin" attack?',
+                    options: ['1. A malicious twin router', '2. A hacker imitating a legitimate network', '3. A duplicate malware file'],
+                    correct: 2
+                }
+            ];
+
+            let score = 0;
+
+            questions.forEach((q, index) => {
+                const questionElem = document.createElement('div');
+                questionElem.innerHTML = `<p>${q.question}</p>`;
+                quizContainer.appendChild(questionElem);
+
+                q.options.forEach((option, i) => {
+                    const optionElem = document.createElement('button');
+                    optionElem.textContent = option;
+                    optionElem.onclick = () => {
+                        if (i + 1 === q.correct) {
+                            score++;
+                        }
+                        if (index === questions.length - 1) {
+                            quizContainer.innerHTML = `<p>Your Score: ${score}/${questions.length}</p>`;
+                        }
+                    };
+                    quizContainer.appendChild(optionElem);
+                });
+                quizContainer.appendChild(document.createElement('br'));
+            });
+        }
+    </script>
+</body>
+
+</html>
